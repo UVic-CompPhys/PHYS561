@@ -13222,44 +13222,12 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Case-study">Case study<a class="anchor-link" href="#Case-study">&#182;</a></h2><ul>
-<li>Large 3D hydrodynamic simulations (show slides </li>
-<li><h2 id="Example-of-modeling-(vs.-simulation)">Example of modeling (vs. simulation)<a class="anchor-link" href="#Example-of-modeling-(vs.-simulation)">&#182;</a></h2></li>
+<li>Large 3D hydrodynamic simulations (show slides, algorithmic compression, data staging) </li>
+<li>Example of modeling (vs. simulation)</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">466</span> <span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span> <span class="mi">768</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span><span class="mf">1.e12</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uncompressed data volume: 466 * 10 * 8 * 768**3 /1.e12 =  </span><span class="si">{:.2f}</span><span class="s2">TB&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Uncompressed data volume: 466 * 10 * 8 * 768**3 /1.e12 =  16.89TB
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13274,7 +13242,7 @@ div#notebook {
 </ul>
 </li>
 <li>the big iron: massively parallel clusters, e.g. cedar and niagara in Compute Canada<ul>
-<li>example</li>
+<li>Niagara demonstration</li>
 </ul>
 </li>
 </ul>
@@ -13284,7 +13252,7 @@ div#notebook {
 <li>Everybody has default allocation! Get an account and try it out!</li>
 </ul>
 <h3 id="What-to-put-on-that-cloud-hardware?">What to put on that cloud hardware?<a class="anchor-link" href="#What-to-put-on-that-cloud-hardware?">&#182;</a></h3><ul>
-<li>VNC</li>
+<li>VNC (demo)</li>
 <li>jupyterhub<ul>
 <li>Cyberhubs slides</li>
 </ul>
@@ -13309,7 +13277,7 @@ div#notebook {
 <h3 id="Safety">Safety<a class="anchor-link" href="#Safety">&#182;</a></h3><ol>
 <li>Backup, backup, and then backup - sensibly!</li>
 <li>What to backup and where, what is your personal data management plan?</li>
-<li>$$\frac{\mathrm{Risk}}{\mathrm{Effort}} = \mathrm{const.}$$</li>
+<li>$\frac{\mathrm{Risk}}{\mathrm{Effort}} = \mathrm{const.}$</li>
 <li>When to backup the presentation you are just working on?</li>
 </ol>
 
@@ -13320,14 +13288,14 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Languages">Languages<a class="anchor-link" href="#Languages">&#182;</a></h2><ul>
-<li>Markdown, Latex (Overleaf)</li>
+<li>Markdown, Latex <a href="https://www.overleaf.com">Overleaf</a></li>
 <li>Python (interpreted languages)<ul>
 <li><a href="https://github.com/UVic-CompPhys/physmath248-2018">PHYS248 Intro Computational Physics</a></li>
 <li>Anaconda distribution, with conda environement and package management</li>
 <li><a href="http://docs.enthought.com/edm/index.html">Enthought distribution</a></li>
 </ul>
 </li>
-<li>Fortran (compiled languages)</li>
+<li>Fortran, C (compiled languages)</li>
 <li>Bash (shell)<ul>
 <li><code>.bashrc</code></li>
 <li>one-line scripts: <code>for name in Paul Anne Carla Henry Lisa; do echo Hallo $name &gt; $name.txt; done</code></li>
@@ -13335,40 +13303,51 @@ div#notebook {
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Collaboration">Collaboration<a class="anchor-link" href="#Collaboration">&#182;</a></h2><h3 id="Version-control">Version control<a class="anchor-link" href="#Version-control">&#182;</a></h3><ul>
 <li>subversion (outdated)</li>
 <li>git<ul>
-<li>Gitlab, e.g. <a href="http://arc-gitlab.phys.uvic.ca">ARC gitlab server</a> </li>
-<li><a href="https://github.com/">Github</a>, <a href="https://bitbucket.org">Bitbucket</a></li>
+<li>Gitlab, e.g. <a href="http://arc-gitlab.phys.uvic.ca">ARC gitlab server</a> allows unlimited private repositories (see Stephenson's <a href="http://arc-gitlab.phys.uvic.ca/syang314/arc-info">ARC Info Repo</a>).</li>
+<li>Commercial: <a href="https://github.com/">Github</a>, <a href="https://bitbucket.org">Bitbucket</a></li>
 </ul>
 </li>
 </ul>
 <h3 id="Communicating">Communicating<a class="anchor-link" href="#Communicating">&#182;</a></h3><ul>
 <li>Skype, Zoom, Vidyo (WestGrid)</li>
-<li>Slack (have to pay eventually); better: Mattermost, e.g. <a href="">ARC mattermost</a></li>
+<li>Slack (have to pay eventually); better: Mattermost, e.g. <a href="http://arc-gitlab.phys.uvic.ca">ARC mattermost</a></li>
 <li>A word about email: don't use it.</li>
 <li>Twitter yes - Facebook no (my bias)</li>
 </ul>
 <h2 id="Access,-human-machine-interface">Access, human-machine interface<a class="anchor-link" href="#Access,-human-machine-interface">&#182;</a></h2><ul>
-<li>terminal<ul>
+<li>Terminal<ul>
 <li>editor: emacs of vim</li>
 </ul>
 </li>
-<li>vnc: a virtual desktop </li>
-<li>jupyterhub, <a href="http://iopscience.iop.org/article/10.3847/1538-4365/aab777/meta">Cyberhubs</a>, <a href="https://github.com/cyberlaboratories">Cyberlaboratories Github repo</a></li>
-</ul>
-<h2 id="Storage">Storage<a class="anchor-link" href="#Storage">&#182;</a></h2><ul>
-<li>external hard drive (8TB $189 on amazon.ca)</li>
-<li>ownCloud, Google Drive, DropBox</li>
-<li>your best friend: <code>sshfs</code></li>
-<li>server storage <ul>
-<li>on ComputeCanada, secret: scratch on cedar or elsewhere</li>
-<li>Case study: Niagara</li>
-<li>research groups in department servers (this is coming to an end soon)</li>
+<li>VNC: a virtual desktop (For ARC students see Stephenson's <a href="http://arc-gitlab.phys.uvic.ca/syang314/arc-info">ARC Info Repo</a>).</li>
+<li>Jupyterhub<ul>
+<li>You can easily build your own custom Jupyterhub server in the cloud. You can use <a href="http://iopscience.iop.org/article/10.3847/1538-4365/aab777/meta">Cyberhubs</a>, and everything you need, including setup-by-step instructions are available on this <a href="https://github.com/cyberlaboratories">Cyberlaboratories Github repo</a>. Cyberhubs relies on the <a href="https://www.docker.com">Docker</a> virtualization technology. Prebuilt <a href="https://cloud.docker.com/u/cyberhubs/repository/registry-1.docker.io/cyberhubs">cyberhubs docker images</a> are available for deployment on the Compute Canada cloud. </li>
+<li>ARC provides group access to jupyterserver <a href="">ARC astrohub</a>, authentication via ARC's gitlab server. </li>
 </ul>
 </li>
-<li>very best friend: globus</li>
-<li>zenodo.org</li>
+</ul>
+<h2 id="Storage">Storage<a class="anchor-link" href="#Storage">&#182;</a></h2><ul>
+<li>External hard drive (8TB $189 on amazon.ca)</li>
+<li>OwnCloud (from WestGrid), Google Drive, DropBox</li>
+<li>Your best friend: <code>sshfs</code> - mount external storage connected to machines that you can reach vis <code>ssh</code> on your laptop or cloud server.</li>
+<li>Server storage <ul>
+<li>On ComputeCanada, 25TB  temporary storage for every account holder</li>
+<li>On each ComputeCanada machine some combination of scratch, project and tape (hpss, nearline) storage; understand the different roles these different storage facilities take.</li>
+<li>Case study: Niagara</li>
+</ul>
+</li>
+<li>Very best friend: <a href="http://www.globus.org">Globus</a> (check out Globus Personal Connect) allows fast and reliable transfer of large amounts of data.</li>
+<li><em>Publish</em> digital objects: <a href="http://zenodo.org">Zenodo</a> assigns DOI for digitial objects (Talk slides, posters, data sets) up to 50GB. Connects to GitHub.  </li>
 </ul>
 
 </div>
@@ -13387,19 +13366,6 @@ div#notebook {
 <h2 id="Workflow-example">Workflow example<a class="anchor-link" href="#Workflow-example">&#182;</a></h2>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
