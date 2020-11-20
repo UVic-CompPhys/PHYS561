@@ -106,7 +106,7 @@ There are numerous tasks that we have to be familiar with, and that are common t
 8. parallel/threaded computing
 9. debugging techniques
 
-Our second-year computational physics course [PHYS 248](https://github.com/UVic-CompPhys/physmath248-2018) introduces many of the key concepts. Check back from time to time as this course is constantly evolving reflecting new developments.
+Our second-year computational physics course [PHYS 248](https://github.com/UVic-CompPhys/PHYS248) introduces many of the key concepts. Check back from time to time as this course is constantly evolving reflecting new developments.
 
 
 
