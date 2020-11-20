@@ -155,7 +155,7 @@ Our second-year computational physics course [PHYS 248](https://github.com/UVic-
 4. When to backup the presentation you are just working on?
 
 ## Languages
-* Markdown, Latex [Overleaf](https://www.overleaf.com)
+* Markdown (Typora), Latex [Overleaf](https://www.overleaf.com)
 * Python (interpreted languages)
     - [PHYS248 Intro Computational Physics](https://github.com/UVic-CompPhys/physmath248-2018)
     - Anaconda distribution, with conda environement and package management
@@ -189,7 +189,7 @@ Two paradigms:
 
 * OpenMP - shared memory 
 * MPI - message-passing interface (most commonly used implementation: OpenMPI)
-* You can 
+* In many cases these approaches are mixed, e.g. 464 node job with 4 MPI ranks on each Niagara nodes, with 20 OpenMP threads per MPI rank (using the Niagara hyberthreading)
 
 ## Collaboration 
 
@@ -283,6 +283,25 @@ ffmpeg  -framerate 10   -y -f image2  -pattern_type glob -i "tile*.png" -preset 
 
 rm tile*.png
 
+```
+
+
+### depsub.sh
+```shell
+# submit dependent job
+# argument: job name
+run_script=$1
+if [ $# -eq 0 ]
+then
+        echo use run_script as command line argument
+        exit 1
+fi
+
+#set -- `squ|grep M104e|sort|tail -n 1`
+set -- `squeue -u fherwig|sed -n '1!p'|sort|tail -n 1`
+job_ID=$1
+echo submitting job $run_script dependent on $job_ID
+sbatch -d afterany:$job_ID $run_script
 ```
 
 
