@@ -8,8 +8,13 @@ This module is part of PHYS 516. The goal is to provide an overview of research 
 * What different types of resources exit and are available?
 * How to organize computational work? Since all research work is computational these days - how to organize your research work?
 
+### Organization
+
+* The first 1.5hr module is intended to give you an overview of tools, resources and best practice experience.
+* In the second part I intend to go over some specific hands-on examples. What we do depends on your interests. Let me at the end of the class or send me an email.
+
 #### Disclaimer
-* This 1.5hr module is intended to give you an overview of tools, resources and best practice experience. We do not have enough time to go into detail.
+
 * These are my views, based on my experience. Treat them as ideas and one possible way of approaching things. There are clearly other ways to go about research computing. Talk to different people to build your repertoire.
 * I am a computational astrophysicist. With my group and collaborators I am involved in performing the largest stellar hydrodynamics simulations in the community ... as an example, let's have a look at what I am doing right now .... 
 
@@ -233,6 +238,51 @@ Two paradigms:
 
 ## Examples
 
+### Finding your way around a cluster like Niagara
+
+* ssh login, ssh keys now becoming mandatory!
+* three different storage areas: home, project, scratch, bbuffer, hpss (archive, tape)
+* login nodes, data movers, jupyter node
+* Modules, e.g. how to use `svn`, loading specific compiler version etc
+* Moving data: Globus
+* interactive node, add this to your `.bashrc`
+
+```bash
+int_node(){
+    salloc --time=$1 --nodes=1 --account=rrg-fherwig-ad 
+}
+```
+
+
+
+### Python on Niagara
+
+Activate scinet-conda environment:
+
+```bash
+. /scinet/conda/etc/profile.d/scinet-conda.sh
+```
+
+Create Pyton environment
+
+```bash
+scinet-conda create --prefix $PROJECT/PythonVirtual/sciconda-astrohub
+scinet-conda activate $PROJECT/PythonVirtual/sciconda-astrohub
+scinet-conda install -y astropy fftw gfortran_linux-64 h5py jupyter matplotlib mpmath numpy scipy seaborn yt ipympl
+scinet-conda pip install healpy tables nbdime
+scinet-conda pip install git+https://github.com/NuGrid/NuGridPy.git@0.7.6  git+https://github.com/PPMstar/PyPPM git+https://github.com/SHTOOLS/SHTOOLS.git@v4.4
+scinet-conda jupyterhubize
+```
+
+Next time you login:
+
+```bash
+. /scinet/conda/etc/profile.d/scinet-conda.sh
+scinet-conda activate $PROJECT/PythonVirtual/sciconda-astrohub
+```
+
+to activate Python environment on terminal.
+
 ### Threaded bash script
 
 ```shell
@@ -304,6 +354,60 @@ echo submitting job $run_script dependent on $job_ID
 sbatch -d afterany:$job_ID $run_script
 ```
 
+### touchfiles.sh
+
+Update time stamps on your scratch files to avoid purging
+
+```bash
+#!/bin/bash
+#Updates file access times for a particular file in /scratch/t/todelete/current/
+#Usage: sh touchfiles.sh <file location>
+#Example: sh touchfiles.sh /scratch/t/todelete/current/3002243__fherwig_____fherwig________6.01T___626718files
+
+counter=0
+while read -r line; do
+    linearr=($line)
+    echo -en "\r File number ${counter}; ${linearr[12]}"
+    touch "${linearr[12]}"
+    counter=$(( $counter+1 ))
+done < "$1"
+```
 
 
+
+### remove-restart.sh
+
+```bash
+#!/usr/bin/bash
+# 
+# give one argument which is the dump to be removed
+
+if [ $# -eq 0 ]
+  then
+    echo
+    echo "*** ERROR: No arguments supplied. ***"
+    echo
+    echo "Supply exactly one argument which is"
+    echo "the dump to be removed"
+    echo
+    echo "These are the present restart dumps:"
+    ls -lat rst?/*.aab
+    exit
+fi
+
+if [ $# -gt 1 ]
+  then
+      echo $#
+    echo "More than one argument supplied"
+    exit
+fi
+
+dump=$1
+echo Removing these files 
+ls rst?/*$dump.??? 
+echo "Hit return to confirm ..."
+read
+rm -rf  rst?/*$dump.??? &
+
+```
 
