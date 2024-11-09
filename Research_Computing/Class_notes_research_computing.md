@@ -8,22 +8,16 @@ This module is part of PHYS 516. The goal is to provide an overview of research 
 * What different types of resources exit and are available?
 * How to organize computational work? Since all research work is computational these days - how to organize your research work?
 
-### Organization
 
-* The first 1.5hr module is intended to give you an overview of tools, resources and best practice experience.
-* In the second part I intend to go over some specific hands-on examples. What we do depends on your interests. Let me at the end of the class or send me an email.
+#### Key points
+* The triad of data, capability and execute
+* The role of collaboration; how to work together on the same data/code etc? $\rightarrow$ Git, Zenodo: link Zenodo DOI with tagged Git release, as done for example for [PyPPM](https://zenodo.org/records/10205176) 
+* reproducability of science $\rightarrow$ Docker+Git
+* Data storage and movement strategies $\rightarrow$ Globus
+* Threaded computing
+* The role of LLMs
+  * Recommended viewing: [A path towards an AI Physicist?](https://www.youtube.com/watch?v=mGBc2sr6opI) by [Kristen Menou](http://individual.utoronto.ca/kmenou/) (University of Toronto). This was a CITA keynote at their recent (fall 2024) Jamboree. Kristen is originally an astronomer.
 
-#### Disclaimer
-
-* These are my views, based on my experience. Treat them as ideas and one possible way of approaching things. There are clearly other ways to go about research computing. Talk to different people to build your repertoire.
-* I am a computational astrophysicist. With my group and collaborators I am involved in performing the largest stellar hydrodynamics simulations in the community ... as an example, let's have a look at what I am doing right now .... 
-
-
-#### What to emphasize in this module
-* the role of collaboration; super-important, how to work together on the same data/code etc?
-* reproducability of science
-* Data storage and movement strategies
-* threading, virtualization, DVC (distributed version control, git)
 
 
 
@@ -104,10 +98,12 @@ There are numerous tasks that we have to be familiar with, and that are common t
 1. reading and writing data (IO) 
 2. visualizing, plotting data
 3. programming
-3. (distributed) version control
-4. documentation and sharing software
-5. networking & storage
-6. using libraries (e.g. for numerical analysis!)
+4. (distributed) version control
+5. documentation and sharing software
+   * using 
+
+6. networking & storage
+7. using libraries (e.g. for numerical analysis!)
 8. parallel/threaded computing
 9. debugging techniques
 
@@ -233,8 +229,12 @@ Two paradigms:
 * _Publish_ digital objects: [Zenodo](http://zenodo.org) assigns DOI for digitial objects (Talk slides, posters, data sets) up to 50GB. Connects to GitHub.  
 
 ## Virtualization
-* (VirtualBox)
-* Docker
+Docker is a virtualization platform that packages applications and their dependencies into standardized virtual operating system images, allowing them to run as containers consistently across different computing environments.
+
+* Images are shared and archived in the Docker registry [Docker Hub](https://hub.docker.com) 
+* Two examples of projects using this technology
+  * https://github.com/NuGrid/NuDocker
+  * https://github.com/fherwig/jupydoc
 
 ## Examples
 
